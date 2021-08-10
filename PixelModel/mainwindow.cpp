@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "QFileDialog"
 #include "pixelmodel.h"
+#include "colordelegate.h"
+#include "QFileDialog"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle("PixelModel");
     ui->tableView->setModel(model);
+    ui->tableView->setItemDelegate(new ColorDelegate(ui->tableView));
 }
 
 MainWindow::~MainWindow()

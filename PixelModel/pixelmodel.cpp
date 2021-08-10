@@ -1,6 +1,5 @@
 #include "pixelmodel.h"
 #include <QImage>
-#include <QDebug>
 
 class PixelModelPrivate
 {
@@ -78,7 +77,7 @@ bool PixelModel::setData(const QModelIndex &index, const QVariant &value, int ro
 {
     switch (role) {
         case Qt::EditRole:
-            if ((value.isValid()) && (QColor::isValidColor(value.value<QString>()))){
+            if (value.isValid()){
                 d_ptr->img.setPixelColor(index.column(), index.row(), value.value<QColor>());
                 return true;
             }else
