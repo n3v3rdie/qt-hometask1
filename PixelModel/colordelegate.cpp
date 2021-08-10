@@ -10,7 +10,8 @@ QWidget *ColorDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem
 {
     Q_UNUSED(index)
     Q_UNUSED(option)
-    return new QColorDialog(parent);
+    auto editor = new QColorDialog(parent);
+    return editor;
 }
 
 void ColorDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
@@ -21,6 +22,13 @@ void ColorDelegate::setEditorData(QWidget *editor, const QModelIndex &index) con
     QColor color = index.data(Qt::EditRole).value<QColor>();
     if (color.isValid()){
         colorEditor->setCurrentColor(color);
+    }
+    auto parent = colorEditor->parentWidget();
+    if (parent){
+        auto center = parent->mapToGlobal(parent->rect().center());
+        int x = colorEditor->sizeHint().width()/2;
+        int y = colorEditor->sizeHint().height()/2;
+        colorEditor->move(center - QPoint(x,y));
     }
 }
 
