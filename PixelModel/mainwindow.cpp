@@ -2,7 +2,8 @@
 #include "ui_mainwindow.h"
 #include "pixelmodel.h"
 #include "colordelegate.h"
-#include "QFileDialog"
+#include <QFileDialog>
+#include <QColorDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

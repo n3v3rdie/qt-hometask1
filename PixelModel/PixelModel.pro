@@ -17,12 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     colordelegate.cpp \
+    colorlineedit.cpp \
     main.cpp \
     mainwindow.cpp \
     pixelmodel.cpp
 
 HEADERS += \
     colordelegate.h \
+    colorlineedit.h \
     mainwindow.h \
     pixelmodel.h
 

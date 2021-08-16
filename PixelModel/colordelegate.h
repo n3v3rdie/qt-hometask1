@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QStyledItemDelegate>
 
+
 class ColorDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
